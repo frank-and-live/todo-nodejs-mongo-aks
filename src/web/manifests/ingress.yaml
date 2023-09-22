@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: todo-ingress-web
+  name: fnl-ingress-web
 spec:
   ingressClassName: webapprouting.kubernetes.azure.com
   rules:
@@ -11,6 +11,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: todo-web
+                name: fnl-web
                 port:
                   number: 80
