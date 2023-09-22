@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: todo-api
+  name: fnl-api
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: todo-api
+      app: fnl-api
   template:
     metadata:
       labels:
-        app: todo-api
+        app: fnl-api
     spec:
       containers:
-        - name: todo-api
+        - name: fnl-api
           image: {{.Env.SERVICE_API_IMAGE_NAME}}
           ports:
             - containerPort: 3100
@@ -23,12 +23,12 @@ spec:
             - name: AZURE_KEY_VAULT_ENDPOINT
               valueFrom:
                 configMapKeyRef:
-                  name: todo-api-config
+                  name: fnl-api-config
                   key: AZURE_KEY_VAULT_ENDPOINT
                   optional: false
             - name: APPLICATIONINSIGHTS_CONNECTION_STRING
               valueFrom:
                 configMapKeyRef:
-                  name: todo-api-config
+                  name: fnl-api-config
                   key: APPLICATIONINSIGHTS_CONNECTION_STRING
                   optional: false
