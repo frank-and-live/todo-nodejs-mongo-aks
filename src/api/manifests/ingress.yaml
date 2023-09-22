@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: todo-ingress-api
+  name: fnl-ingress-api
   annotations:
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$2
@@ -14,6 +14,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: todo-api
+                name: fnl-api
                 port:
                   number: 80
